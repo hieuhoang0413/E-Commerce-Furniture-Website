@@ -1,0 +1,97 @@
+.footer {
+    display: flex;
+    height: 408px;
+    padding-top: 50px;
+    justify-content: space-around;
+    border-top: 1px solid rgba(0, 0, 0, 0.17);
+    background: #FFF;
+}
+
+.footer-about-us {
+    text-align: left;
+    width: 285px;
+}
+
+.footer-brand {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.footer-describe {
+    color: #9F9F9F;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.footer-page-links {
+    text-align: left;
+}
+
+.footer-page-links li {
+    list-style: none;
+    margin-bottom: 46px;
+    transition: transform 0.2s ease;
+}
+
+.footer-page-links li:hover {
+    transform: scale(1.2);
+}
+
+.page-link {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-support-links {
+    text-align: left;
+}
+
+.support-link-list li {
+    list-style: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 46px;
+}
+
+.footer-get-notified {
+    text-align: left;
+}
+
+.form-get-notified {
+    display: flex;
+}
+
+.input-get-notified {
+    border: none;
+    margin-right: 10px;
+    border-bottom: 1px solid #000;
+    color: #9F9F9F;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.input-get-notified:focus {
+    outline: none;
+    color: #000;
+}
+
+.footer-page-links p,
+.footer-support-links p,
+.footer-get-notified p {
+    color: #9F9F9F;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 55px;
+}
+
+.footer-button {
+    border-bottom: 1px solid #000;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+}

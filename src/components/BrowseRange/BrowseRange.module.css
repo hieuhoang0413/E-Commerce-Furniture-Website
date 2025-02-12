@@ -1,0 +1,27 @@
+.browse-range {
+    width: 100%;
+    padding: 50px 130px 0;
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.browse-range-title {
+    margin-bottom: 50px;
+}
+
+.browse-range-title h1 {
+    color: var(--Font-Color, #333);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.browse-range-title h3 {
+    color: var(--Font-Color1, #666);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.browse-range-cards {
+    display: flex;
+    gap: 15px;
+}

@@ -1,53 +1,44 @@
 import styles from './Slide.module.css';
 import classNames from 'classnames/bind';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button.jsx';
 
+import img1 from '../../assets/images/slide-img/scandinavian-interior-mockup-wall-decal-background 1.png';
+import img2 from '../../assets/images/slide-img/pexels-fotoaibe-1571468.jpg';
+import img3 from '../../assets/images/slide-img/pexels-fotoaibe-1643383.jpg';
+import img4 from '../../assets/images/slide-img/pexels-fotoaibe-1669799.jpg';
+import img5 from '../../assets/images/slide-img/pexels-jvdm-1543447.jpg';
+import img6 from '../../assets/images/slide-img/pexels-pixabay-259580.jpg';
+
 const cx = classNames.bind(styles);
 
-function Slide({ input, ratio, mode, timeout = 5000 }) {
+const collection = [
+    { src: img1, caption: "Caption one" },
+    { src: img2, caption: "Caption two" },
+    { src: img3, caption: "Caption three" },
+    { src: img4, caption: "Caption four" },
+    { src: img5, caption: "Caption five" },
+    { src: img6, caption: "Caption six" },
+];
+
+function Slide() {
     const [slideIndex, setSlideIndex] = useState(0);
 
-    const getNewSlideIndex = useCallback((step) => {
-        const numberSlide = input.length;
-        let newSlideIndex = slideIndex + step;
-        if (newSlideIndex >= numberSlide) {
-            newSlideIndex = 0;
-        } else if (newSlideIndex < 0) {
-            newSlideIndex = numberSlide - 1;
-        }
-        return newSlideIndex;
-    }, [input, slideIndex]);
-
     useEffect(() => {
-        let automaticInterval;
-        if (mode === 'automatic') {
-            automaticInterval = setInterval(() => {
-                setSlideIndex(getNewSlideIndex(1));
-            }, timeout);
-        }
+        const interval = setInterval(() => {
+            setSlideIndex(prevIndex => (prevIndex + 1) % collection.length);
+        }, 10000);
 
-        return () => {
-            if (automaticInterval) {
-                clearInterval(automaticInterval);
-            }
-        }
-    }, [slideIndex, mode, timeout, getNewSlideIndex]);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className={cx("slide-show")}>
             <div className={cx("slide-container")}>
-                {input.map((image, index) => {
-                    return (
-                        <div
-                            key={index}
-                            className={cx("slide", { active: slideIndex === index })}
-                        >
-                            <img className={cx("image")} src={image.src} alt={image.caption} />
-                        </div>
-                    );
-                })}
+                <div className={cx("slide")}>
+                    <img className={cx("image")} src={collection[slideIndex].src} alt={collection[slideIndex].caption} />
+                </div>
             </div>
 
             <div className={cx("slide-content-container")}>
